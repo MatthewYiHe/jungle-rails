@@ -10,11 +10,18 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
+    line_items = order.line_items.to_a.map do |item|
+      { product: item.product.name, quantity: item.quantity }
+    end
 
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
+<<<<<<< HEAD
       UserMailer.conformation_email(order).deliver_later
+=======
+      UserMailer.conformation_email(order, line_items).deliver_later
+>>>>>>> feature/order-receipt
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
