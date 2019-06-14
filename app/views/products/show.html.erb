@@ -26,10 +26,19 @@
       </div>
     </div>
 
-    <div>
+    <div class="review">
+      <p>Ratings & reviews</p>
       <% @reviews.each do |review| %>
-      <ul> <%= review.rating %></ul>
-      <ul><%= review.comment %></ul>
+      <div>
+        <% review.rating.to_i.times do  %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+        <% review.blank_stars.times do %>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+        <ul><%= review.comment %></ul>
+
+      </div>
       <% end %>
     </div>
 
