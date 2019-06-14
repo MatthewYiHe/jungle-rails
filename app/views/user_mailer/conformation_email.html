@@ -7,12 +7,11 @@
   <body>
     <h1>Thanks for shopping in the Jungle!</h1>
     <p>
-      You have successfully made a purchase with us, and here is the details:
-    </p>
-
+    <ul>
     <% @lineitems.map do |item| %>
       <li> <%= item[:quantity]%>   <%= item[:product] %> </li>
     <% end %>
+    </ul>
 
     <p>
       your total amount is: $<%= @order.total_cents/100.to_f %>.
