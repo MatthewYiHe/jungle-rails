@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @reviews = @product.reviews.to_a
+    @reviews = @product.reviews.to_a.reverse
+    @current_id = current_user.id
   end
-
 
 end

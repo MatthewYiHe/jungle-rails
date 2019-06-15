@@ -1,8 +1,13 @@
 class ReviewsController < ApplicationController
 
   def create
-    puts "----------------------#{params[:review][:star]},#{params[:product_id]}------------------"
     create_review
+  end
+
+  def destroy
+    @review = Review.find params[:id]
+    @review.destroy
+    redirect_to '/', notice: 'Product deleted!'
   end
 
   def create_review
