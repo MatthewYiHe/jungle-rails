@@ -4,6 +4,14 @@
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
     <% end %>
+    <div class="rating">
+        <% product.reviews.average(:rating).to_i.times do  %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+        <% product.blank_stars(product.reviews.average(:rating).to_i).times do %>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+      </div>
   </header>
   <p class="description">
     <%= product.description %>

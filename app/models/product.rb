@@ -11,4 +11,8 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def blank_stars(rating)
+   5 - rating
+  end
+
 end
