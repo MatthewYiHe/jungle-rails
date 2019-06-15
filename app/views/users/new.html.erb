@@ -4,7 +4,6 @@
 
   <div class="form">
     <%= form_for :user, url: '/users' do |f| %>
-
       <ul class="register"> First name: </ul>
       <ul class="register"><%= f.text_field :first_name %> </ul>
       <ul class="register"> Last name: </ul>
@@ -16,7 +15,6 @@
       <ul class="register"> Password Confirmation: </ul>
       <ul class="register"><%= f.password_field :password_confirmation %> </ul>
       <ul class="register"> <%= f.submit "Submit" , {:class=>"btn btn-info"}%> </ul>
-
     <% end %>
 
   </div>
