@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
     @reviews = @product.reviews.to_a.reverse
     @current_id = current_user.id
+    @current_username = current_user.first_name
+    puts "-----------------------#{@reviews}"
   end
 
 end
